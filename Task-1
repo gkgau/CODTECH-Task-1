@@ -1,0 +1,34 @@
+/*This code is about to find the BMI of a person*/
+
+import tkinter as tk
+
+def calculate_bmi():
+    weight = float(weight_entry.get())
+    height = float(height_entry.get())
+    bmi = weight / (height/100) ** 2
+    bmi_label.config(text=f"Your BMI is {bmi:.2f}",font='arial',bg='plum')
+    
+win = tk.Tk()
+win.title("BMI Tracker")
+
+welcome_label = tk.Label(win, text="Enter your weight (kg) and height (m) to calculate your BMI.",font='arial',bg='plum')
+welcome_label.pack()
+
+weight_label = tk.Label(win, text="Weight (kg):",font='arial',bg='plum')
+weight_label.pack()
+weight_entry = tk.Entry(win)
+weight_entry.pack()
+
+height_label = tk.Label(win, text="Height (cm):",font='arial',bg='plum')
+height_label.pack()
+height_entry = tk.Entry(win)
+height_entry.pack()
+
+calculate_button = tk.Button(win, text="Calculate BMI",font='arial',bg='lightgreen', command=calculate_bmi)
+calculate_button.pack()
+
+bmi_label =tk.Label(win, text="")
+bmi_label.pack()
+win.resizable(width=False,height=True)
+win.configure(bg='plum')
+win.mainloop()
