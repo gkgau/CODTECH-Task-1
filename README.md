@@ -3,7 +3,7 @@ Company:CODTECH IT SOLUTIONS
 ID:CT04ML2223
 Domain:Machine Learning
 Duration:june to july 2024
-Mentor:
+Mentor:Mohammed Muzammil Ahmed
 
 ****Overview the Project:-****
 **Project:-BMI Tracker App**
