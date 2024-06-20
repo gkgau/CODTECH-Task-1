@@ -5,30 +5,43 @@ import tkinter as tk
 def calculate_bmi():
     weight = float(weight_entry.get())
     height = float(height_entry.get())
-    bmi = weight / (height/100) ** 2
-    bmi_label.config(text=f"Your BMI is {bmi:.2f}",font='arial',bg='plum')
-    
+    bmi = weight / (height / 100) ** 2
+    bmi_label.config(text=f"Your BMI is {bmi:.2f}", font='arial', bg='plum')
+    if bmi < 18.5:
+        category_label.config(text="You are Underweight.", font='arial', bg='plum')
+    elif 18.5 <= bmi <= 24.9:
+        category_label.config(text="You are Normal.", font='arial', bg='plum')
+    elif 25.0 <= bmi <= 29.9:
+        category_label.config(text="You are Overweight.", font='arial', bg='plum')
+    else:
+        category_label.config(text="You are Obese.", font='arial', bg='plum')
+
 win = tk.Tk()
 win.title("BMI Tracker")
 
-welcome_label = tk.Label(win, text="Enter your weight (kg) and height (m) to calculate your BMI.",font='arial',bg='plum')
+welcome_label = tk.Label(win, text="Enter your weight (kg) and height (cm) to calculate your BMI.", font='arial', bg='plum')
 welcome_label.pack()
 
-weight_label = tk.Label(win, text="Weight (kg):",font='arial',bg='plum')
+weight_label = tk.Label(win, text="Weight (kg):", font='arial', bg='plum')
 weight_label.pack()
 weight_entry = tk.Entry(win)
 weight_entry.pack()
 
-height_label = tk.Label(win, text="Height (cm):",font='arial',bg='plum')
+height_label = tk.Label(win, text="Height (cm):", font='arial', bg='plum')
 height_label.pack()
 height_entry = tk.Entry(win)
 height_entry.pack()
 
-calculate_button = tk.Button(win, text="Calculate BMI",font='arial',bg='lightgreen', command=calculate_bmi)
+calculate_button = tk.Button(win, text="Calculate BMI", font='arial', bg='lightgreen', command=calculate_bmi)
 calculate_button.pack()
 
-bmi_label =tk.Label(win, text="")
+bmi_label = tk.Label(win, text="", font='arial', bg='plum')
 bmi_label.pack()
-win.resizable(width=False,height=True)
+
+category_label = tk.Label(win, text="", font='arial', bg='plum')
+category_label.pack()
+
+win.resizable(width=False, height=True)
 win.configure(bg='plum')
 win.mainloop()
+
